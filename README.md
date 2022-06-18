@@ -27,14 +27,28 @@ Adobe Premiere.
 chosen frame rate is 30 FPS. The function Removes excessive frames from videos that
 exceeds the specified number of FPS, and it duplicates frames in videos that are short of
 the required FPS.
-![Fix Function Header](images/Screenshot%202022-06-18%20021340.png "Function Header")
+```python
+def fixVideo(frames,video_name,startFrames=0,endFrames=0,middleFrames=0):
+```
 
 - To be able to identify signs, a very large database is required. Better results are
 guaranteed with a larger database (if the videos are correctly set). The video
 augmentation has been done with Python. Then Augmentation on the videos were applied
 in order to add to the training efficiency, a list of 9 different augmentations were added to
 the videos
-![Aug review](images/Screenshot%202022-06-18%20021501.png "augs")
+```python
+import imgaug.augmenters as iaa
+augs=[iaa.Rotate(5),iaa.Rotate(10),iaa.Rotate(15),
+      iaa.Rotate(-5),iaa.Rotate(-10),iaa.Rotate(-15),
+      iaa.ShearX(5),iaa.ShearX(10),iaa.ShearX(-5),
+      iaa.ShearX(-10),iaa.ScaleY(1.1),iaa.ScaleY(0.9),
+      iaa.TranslateX(px=5),iaa.TranslateY(px=5),
+      iaa.Sequential([iaa.TranslateY(px=5),iaa.TranslateX(px=5)])]
+for video in df["Video"]:
+    video_file=vread(video)
+    output=aug.augment_images(video_file)
+    vwrite(f'{video.split(".")[0]}_filp.mp4',output)
+```
 
 - After that, features from videos are extracted using a tool called MediaPipe. Its function
 is to adjust the points on the focused body and hands positions in order to take part to
