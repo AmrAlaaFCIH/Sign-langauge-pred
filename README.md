@@ -1,4 +1,4 @@
-# Egyption Sign Language Prediciton Using CNN And LSTM 
+# Egyptian Sign Language Prediciton Using CNN And LSTM 
 Hand gestures are one of the nonverbal communication modalities used in sign language. It is
 most often used by deaf people who have hearing or speech impairments to communicate with
 other deaf people or even with normal people, so a Deep Learning model is implemented to
