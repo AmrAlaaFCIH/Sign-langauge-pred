@@ -17,6 +17,7 @@ and validation accuracy, 99.98% in testing, and very accurate results in real-ti
 ## Implementation Details :
 - First of all, the Data Set is manually collected. We gathered clips from certified
 references on popular platforms like YouTube
+
 ![Youtube Header](images/Screenshot%202022-06-18%20020846.png "لغة الاشارة")
 - We then trimmed the parts of needed exact gestures using media editing software like
 Adobe Premiere.
